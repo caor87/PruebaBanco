@@ -1,14 +1,3 @@
-# Content Video 1
-Dockerize a Java Spring Boot Starter Template
-
-https://www.youtube.com/watch?v=EwwkEDz3VeE
-(published on 19th of November 2020)
-
-# Content Video 2
-- Add a docker-compose file and run also a postgres db and postgres adminer
-- Connect with Spring Boot to the db
-- Post Data && Get Data over http (to Spring Boot) and then save it in the db  
-
 # You need
 - Java
 - Maven
@@ -19,18 +8,15 @@ https://www.youtube.com/watch?v=EwwkEDz3VeE
 Builds, (re)creates, starts, and attaches to containers for a service.  
 `docker-compose up`
 
-# Start Commands for Docker
-Please follow the 1st Video, because due to docker-compose there are some changes  
-
 Build your image:  
 `docker build <your path> -t <<user>/project-name>`  
 
 Run:  
-`docker run -p 8080:3000 <<user>/project-name>`  
+`docker run -p 8081:3000 <<user>/project-name>`  
 
 For Example:  
-`docker build <your path> -t thomas-oliver/sb-dockerized`  
-`docker run -p 8080:3000 thomas-oliver/sb-dockerized`  
+`docker build <your path> -t carlo-oviedo/sb-dockerized`  
+`docker run -p 8081:3000 carlo-oviedo/sb-dockerized`  
 
 Basic Docker Commands:  
 List your docker images: `docker images`  
