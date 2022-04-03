@@ -33,6 +33,15 @@ public class EmployeController {
 		return new ResponseEntity<List<Employe>>(employeService.findAll(), HttpStatus.OK);
 	}
 
+	@GetMapping("employe/{id}")
+	public ResponseEntity<?> findEmployeById(@PathVariable Long id) {
+
+		if (employeService.findUserById(id) == null) {
+			return new ResponseEntity<Integer>(1, HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Employe>(employeService.findUserById(id), HttpStatus.OK);
+	}
+
 	@PostMapping
 	public ResponseEntity<?> addEmploye(@RequestBody Employe employe) {
 		return new ResponseEntity<Employe>(employeService.addEmploye(employe), HttpStatus.OK);
@@ -64,11 +73,12 @@ public class EmployeController {
 
 		Employe character2 = employeService.findUserById(id);
 		if (character2 == null) {
-			return new ResponseEntity<String>("Employe not found wuit id: " + id, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("Employe not found whit user name: " + character2.getUserName(),
+					HttpStatus.BAD_REQUEST);
 		}
 
 		employeService.deleteEmploye(id);
-		return new ResponseEntity<String>("Employe delete" + id, HttpStatus.OK);
+		return new ResponseEntity<String>("Employe delete: " + character2.getUserName(), HttpStatus.OK);
 	}
 
 }
