@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Appointment</th>
+              <th scope="col">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ employee.userName }}</td>
+              <td>{{ employee.fullName }}</td>
+              <td>{{ employee.appointment }}</td>
+              <td>{{ employee.id }}</td>
+
+              <td>
+                <span class="p-2 icon"
+                  ><fa-icon
+                    [icon]="iconUserEdit"
+                    class="icon-save"
+                    (click)="editEmployee(employee.id)"
+                  ></fa-icon
+                ></span>
+                <span class="p-2 icon"
+                  ><fa-icon
+                    [icon]="iconUserDelete"
+                    class="icon-delete"
+                    (click)="deleteEmployee(employee.id)"
+                  ></fa-icon
+                ></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col">
+      <div class="container">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            [(ngModel)]="employee.userName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="fullname" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullname"
+            placeholder="Full Name"
+            [(ngModel)]="employee.fullName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="appointment" class="form-label">Appointment</label>
+          <input
+            type="text"
+            class="form-control"
+            id="appointment"
+            placeholder="Enter the employee's title"
+            [(ngModel)]="employee.appointment"
+          />
+        </div>
+
+        <div class="col-auto">
+          <button
+            class="btn btn-primary btn-sm mb-3 m-3"
+            (click)="createEmployee()"
+          >
+            Save employee
+          </button>
+          <button class="btn btn-danger btn-sm mb-3 m-3" (click)="clearForm()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
