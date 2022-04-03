@@ -1,10 +1,10 @@
-package com.bank;
+package com.employee.employesdocker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmployesBankApplicationTests {
+class EmployesDockerApplicationTests {
 
 	@Test
 	void contextLoads() {
