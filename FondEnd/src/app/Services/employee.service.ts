@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private apiURL = 'https://83ad-2800-e2-5a80-c08-a861-c5ba-5b69-3e76.ngrok.io';
-  
+  private apiURL = 'http://localhost:8081';
+
 
   httpOptions = {
     headers: new HttpHeaders({
