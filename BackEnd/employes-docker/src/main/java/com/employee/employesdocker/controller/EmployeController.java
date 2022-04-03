@@ -33,13 +33,15 @@ public class EmployeController {
 		return new ResponseEntity<List<Employe>>(employeService.findAll(), HttpStatus.OK);
 	}
 
-	@GetMapping("employe/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findEmployeById(@PathVariable Long id) {
 
 		if (employeService.findUserById(id) == null) {
 			return new ResponseEntity<Integer>(1, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<Employe>(employeService.findUserById(id), HttpStatus.OK);
 		}
-		return new ResponseEntity<Employe>(employeService.findUserById(id), HttpStatus.OK);
+
 	}
 
 	@PostMapping
